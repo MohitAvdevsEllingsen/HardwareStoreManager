@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: hardware-store-manager
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://krishna-mobile:Mohit_123@cluster0.2zjsb9i.mongodb.net/hardware_store?retryWrites=true&w=majority
+      - key: PORT
+        value: 10000

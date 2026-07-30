@@ -1,0 +1,15 @@
+{
+  "name": "hardware-store-manager",
+  "version": "1.0.0",
+  "description": "Hardware Store Daily Sales, Returns and Udhar Register - Node.js, Express, MongoDB Atlas, React & Kotlin Android",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd web && npm install && cd ../server && npm install",
+    "build": "cd web && npm install && npm run build && cd ../server && npm install",
+    "start": "cd server && node index.js",
+    "dev": "cd server && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
