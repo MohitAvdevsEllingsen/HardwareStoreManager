@@ -1,12 +1,9 @@
 package com.hardwarestore.manager.data
 
 object AppConfig {
-    // Local Dev URL
-    const val LOCAL_API_URL = "http://10.0.2.2:5000/api"
-
-    // Render Hosted Server URL (Replace with your Render web service URL after deployment)
-    const val RENDER_HOSTED_API_URL = "https://hardware-store-manager.onrender.com/api"
+    // Live Cloudflare HTTPS Server URL connected to MongoDB Atlas
+    const val LIVE_SERVER_URL = "https://isaac-layers-strips-section.trycloudflare.com/api"
 
     // Active Server URL
-    var BASE_URL = RENDER_HOSTED_API_URL
+    var BASE_URL = LIVE_SERVER_URL
 }
