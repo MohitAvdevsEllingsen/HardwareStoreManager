@@ -313,10 +313,6 @@ export default function App() {
 
   useEffect(() => {
     fetchData()
-    const interval = setInterval(() => {
-      fetchData()
-    }, 5000)
-    return () => clearInterval(interval)
   }, [selectedDate, filterType, apiBaseUrl])
 
   const totalOutstanding = customerList.reduce((sum, c) => sum + (c.outstandingBalance || 0), 0)
