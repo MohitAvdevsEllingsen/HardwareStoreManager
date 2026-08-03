@@ -22,6 +22,8 @@ import {
   Settings
 } from 'lucide-react'
 
+const RENDER_DEFAULT_URL = 'https://hardwarestoremanager.onrender.com/api'
+
 const getInitialApiBase = () => {
   const custom = localStorage.getItem('HARDWARE_STORE_SERVER_URL')
   if (custom && custom.trim()) {
@@ -32,7 +34,7 @@ const getInitialApiBase = () => {
   if (import.meta.env.VITE_API_BASE_URL) {
     return import.meta.env.VITE_API_BASE_URL
   }
-  return '/api'
+  return RENDER_DEFAULT_URL
 }
 
 
@@ -203,7 +205,16 @@ function ServerSettingsModal({ currentUrl, onSave, onClose, dbConnected }) {
           </span>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '8px' }}>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end', marginTop: '8px' }}>
+          <button 
+            onClick={() => {
+              setInputUrl(RENDER_DEFAULT_URL)
+              onSave(RENDER_DEFAULT_URL)
+            }}
+            style={{ background: '#0284c7', border: 'none', color: '#fff', padding: '10px 14px', borderRadius: '8px', cursor: 'pointer', fontSize: '12px', fontWeight: '600' }}
+          >
+            Use Render Cloud URL
+          </button>
           <button 
             onClick={() => {
               setInputUrl('/api')

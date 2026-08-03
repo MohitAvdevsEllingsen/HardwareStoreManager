@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: hardware-store-manager
+    name: hardwarestoremanager
     env: node
     plan: free
     buildCommand: npm run build
