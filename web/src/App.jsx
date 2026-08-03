@@ -22,7 +22,7 @@ import {
   Settings
 } from 'lucide-react'
 
-const RENDER_DEFAULT_URL = 'https://hardwarestoremanager.onrender.com/api'
+const RENDER_DEFAULT_URL = 'https://hardwarestoremanager-1.onrender.com/api'
 
 const getInitialApiBase = () => {
   const custom = localStorage.getItem('HARDWARE_STORE_SERVER_URL')

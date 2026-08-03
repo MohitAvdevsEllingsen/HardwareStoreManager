@@ -4,6 +4,11 @@ import Transaction from '../models/Transaction.js'
 
 const router = express.Router()
 
+// GET API Root Status Check
+router.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'Hardware Store Manager API is running live!' })
+})
+
 // Helper: Get or Create Customer
 async function findOrCreateCustomer(name, phone) {
   if (!name || !name.trim()) return null
