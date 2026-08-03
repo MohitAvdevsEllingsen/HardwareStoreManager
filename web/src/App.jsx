@@ -343,10 +343,27 @@ export default function App() {
         fetchData()
         setActiveTab('home')
       } else {
-        alert('Failed to save transaction.')
+        const errorData = await res.json().catch(() => ({}))
+        alert('Failed to save transaction: ' + (errorData.error || res.statusText))
       }
     } catch (err) {
-      alert('Error connecting to server.')
+      if (apiBaseUrl !== RENDER_DEFAULT_URL) {
+        try {
+          const fallbackRes = await fetch(`${RENDER_DEFAULT_URL}/transactions`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newTx)
+          })
+          if (fallbackRes.ok) {
+            setApiBaseUrl(RENDER_DEFAULT_URL)
+            localStorage.setItem('HARDWARE_STORE_SERVER_URL', RENDER_DEFAULT_URL)
+            fetchData()
+            setActiveTab('home')
+            return
+          }
+        } catch (fErr) {}
+      }
+      alert('Error connecting to server: ' + err.message)
     }
   }
 
