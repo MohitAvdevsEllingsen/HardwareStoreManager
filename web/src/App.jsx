@@ -324,10 +324,13 @@ export default function App() {
   const handleSaveServerUrl = (newUrl) => {
     let clean = (newUrl || '').trim().replace(/\/$/, '')
     if (clean && !clean.endsWith('/api')) clean += '/api'
-    if (!clean) clean = '/api'
+    if (!clean || clean === '/api') clean = RENDER_DEFAULT_URL
     localStorage.setItem('HARDWARE_STORE_SERVER_URL', clean)
     setApiBaseUrl(clean)
     setShowServerModal(false)
+    setTimeout(() => {
+      fetchData()
+    }, 100)
   }
 
   // Handlers

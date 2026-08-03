@@ -1,5 +1,16 @@
 {
   "appId": "com.hardwarestore.manager",
   "appName": "Hardware Store Manager",
-  "webDir": "dist"
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  },
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": [
+      "*.onrender.com"
+    ]
+  }
 }
