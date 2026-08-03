@@ -1,9 +1,10 @@
 package com.hardwarestore.manager.data
 
 object AppConfig {
-    // Live Cloudflare HTTPS Server URL connected to MongoDB Atlas
-    const val LIVE_SERVER_URL = "https://isaac-layers-strips-section.trycloudflare.com/api"
+    // Default hosted server URL connected to MongoDB Atlas
+    const val DEFAULT_SERVER_URL = "https://hardware-store-manager.onrender.com/api"
 
     // Active Server URL
-    var BASE_URL = LIVE_SERVER_URL
+    var BASE_URL = DEFAULT_SERVER_URL
 }
+

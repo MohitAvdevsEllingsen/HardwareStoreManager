@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Hardware Store Manager</string>
+    <string name="title_activity_main">Hardware Store Manager</string>
+    <string name="package_name">com.hardwarestore.manager</string>
+    <string name="custom_url_scheme">com.hardwarestore.manager</string>
+</resources>

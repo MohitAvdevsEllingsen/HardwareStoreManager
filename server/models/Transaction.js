@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
 const transactionSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ['SALE', 'RETURN', 'PAYMENT'],
+    enum: ['SALE', 'PAYMENT'],
     required: true
   },
   paymentMethod: {

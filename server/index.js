@@ -19,6 +19,12 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://krishna-mobile:Moh
 app.use(cors())
 app.use(express.json())
 
+// APK Direct Download Endpoint
+app.get('/download/app.apk', (req, res) => {
+  const apkPath = path.join(__dirname, 'HardwareStoreManager.apk')
+  res.download(apkPath, 'HardwareStoreManager.apk')
+})
+
 // API Routes
 app.use('/api', apiRoutes)
 

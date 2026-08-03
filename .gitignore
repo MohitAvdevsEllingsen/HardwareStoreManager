@@ -9,7 +9,11 @@ server/node_modules/
 .gradle/
 build/
 app/build/
+web/android/.gradle/
+web/android/build/
+web/android/app/build/
 *.apk
 *.aar
 .idea/
 *.iml
+
