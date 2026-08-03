@@ -29,6 +29,9 @@ const getInitialApiBase = () => {
   if (custom && custom.trim()) {
     let clean = custom.trim().replace(/\/$/, '')
     if (!clean.endsWith('/api')) clean += '/api'
+    if (clean === '/api') {
+      return RENDER_DEFAULT_URL
+    }
     return clean
   }
   if (import.meta.env.VITE_API_BASE_URL) {
@@ -288,11 +291,21 @@ export default function App() {
 
         setDbConnected(true)
       } else {
-        setDbConnected(false)
+        if (apiBaseUrl !== RENDER_DEFAULT_URL) {
+          localStorage.setItem('HARDWARE_STORE_SERVER_URL', RENDER_DEFAULT_URL)
+          setApiBaseUrl(RENDER_DEFAULT_URL)
+        } else {
+          setDbConnected(false)
+        }
       }
     } catch (err) {
       console.error('Failed to fetch from MongoDB server:', err)
-      setDbConnected(false)
+      if (apiBaseUrl !== RENDER_DEFAULT_URL) {
+        localStorage.setItem('HARDWARE_STORE_SERVER_URL', RENDER_DEFAULT_URL)
+        setApiBaseUrl(RENDER_DEFAULT_URL)
+      } else {
+        setDbConnected(false)
+      }
     } finally {
       setLoading(false)
     }
